@@ -4,12 +4,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+async function start() {
+  if (process.env.NODE_ENV !== 'production') {
+    const axe = await import('react-axe');
+    axe.default(React, ReactDOM, 1000);
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root'),
+  );
+}
+
+start();
 
 // Hot Module Replacement (HMR) - Remove this snippet to remove HMR.
 // Learn more: https://www.snowpack.dev/#hot-module-replacement

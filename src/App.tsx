@@ -4,7 +4,7 @@ import './App.css';
 
 interface AppProps {}
 
-function App({}: AppProps) {
+function App(props: AppProps) {
   return (
     <div className="App">
       <header className="App-header">
